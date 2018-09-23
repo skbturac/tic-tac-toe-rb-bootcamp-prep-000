@@ -8,6 +8,7 @@ WIN_COMBINATIONS = [
   [0,4,8],
   [2,4,6]
 ]
+
  def display_board(board)
   puts " #{board[0]} | #{board[1]} | #{board[2]} "
   puts "-----------"
@@ -15,18 +16,23 @@ WIN_COMBINATIONS = [
   puts "-----------"
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
+
  def input_to_index(user_input)
   user_input.to_i - 1
 end
+
  def player_move(board, index, current_player)
   board[index] = current_player
-end  
+end 
+
  def position_taken?(board, index)
   !(board[index].nil? || board[index] == " ")
 end
+
  def valid_move?(board, index)
   index.between?(0,8) && !position_taken?(board, index)
 end
+
  def turn(board)
   puts "Please enter 1-9:"
   input = gets.strip
@@ -38,6 +44,7 @@ end
     turn(board)
   end
 end
+
  def turn_count(board)
   turn_count = 0
   board.each do |index|
@@ -47,6 +54,7 @@ end
   end
   return turn_count
 end
+
  def current_player(board)
   if turn_count(board) % 2 == 0
     return "X"
@@ -54,6 +62,7 @@ end
     return "O"
   end  
 end
+
  def won?(board)
   combination = 0
   while combination < WIN_COMBINATIONS.length
@@ -67,16 +76,20 @@ end
   end
   return false
 end
+
   
 def full?(board)
   board.all? {|index| index == 'X' || index == 'O'}
 end
+
  def draw?(board)
   won?(board) == false && full?(board) == true
 end  
+
  def over?(board)
   won?(board) || draw?(board) || full?(board)
 end
+
  def winner(board)
     combination = 0
     while combination < WIN_COMBINATIONS.length
@@ -85,7 +98,7 @@ end
       owin = current_combination.all? {|position| board[position] == "O"}
       if xwin == true
         return "X"
-      elsif owin == true 
+     # elsif owin == true 
         return "O"
       else
         false
