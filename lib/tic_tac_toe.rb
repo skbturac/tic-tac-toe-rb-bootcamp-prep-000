@@ -98,7 +98,7 @@ end
       owin = current_combination.all? {|position| board[position] == "O"}
       if xwin == true
         return "X"
-     # elsif owin == true 
+      elsif owin == true 
         return "O"
       else
         false
