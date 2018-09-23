@@ -94,7 +94,7 @@ end
     combination = 0
     while combination < WIN_COMBINATIONS.length
       current_combination = WIN_COMBINATIONS[combination]
-      win = current_combination.all? {|position| board[position] == "X"}
+      xwin = current_combination.all? {|position| board[position] == "X"}
       owin = current_combination.all? {|position| board[position] == "O"}
       if xwin == true
         return "X"
