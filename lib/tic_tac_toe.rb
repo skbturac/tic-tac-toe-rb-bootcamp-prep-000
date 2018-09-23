@@ -106,6 +106,7 @@ end
       combination += 1
     end
 end
+
  def play(board)
   while over?(board) == false
     turn(board)
@@ -113,6 +114,6 @@ end
   if won?(board)
     puts "Congratulations #{winner(board)}!"
   elsif draw?(board)
-    puts "Cat's Game!"
+    puts "at's Game!"
   end  
 end
